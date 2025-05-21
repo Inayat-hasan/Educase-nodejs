@@ -19,4 +19,8 @@ app.use(express.json());
 
 app.use("/api/school", schoolMngRoute);
 
+app.get("/", (req, res) => {
+  res.send("Assignment Completed!");
+});
+
 export default app;
