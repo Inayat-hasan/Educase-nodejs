@@ -115,4 +115,4 @@ You can test both APIs using this Postman collection:
 
 This API is deployed and accessible at:
 
-🔗 **Deployment Link:** [Educase Node.js API](https://educa-nodejs.onrender.com)
+🔗 **Deployment Link:** [School Management API](https://school-mng.onrender.com)
