@@ -30,12 +30,22 @@ const addSchool = async (req, res) => {
         .json({ error: "Longitude must be between -180 and 180 degrees." });
     }
 
-    await connection.execute(
+    const [result] = await connection.execute(
       "INSERT INTO schools (name, address, latitude, longitude) VALUES (?, ?, ?, ?)",
       [name, address, lat, lon]
     );
 
-    res.status(201).json({ message: "School added successfully." });
+    const newSchool = {
+      id: result.insertId,
+      name,
+      address,
+      latitude: lat,
+      longitude: lon,
+    };
+
+    res
+      .status(201)
+      .json({ message: "School added successfully.", school: newSchool });
   } catch (err) {
     console.log(err);
     res.status(500).json({ error: "Internal Server Error" });
